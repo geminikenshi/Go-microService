@@ -37,6 +37,7 @@ func render(w http.ResponseWriter, t string) {
 	tmpl, err := template.ParseFiles(templateSlice...)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+
 		return
 	}
 
