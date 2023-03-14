@@ -65,5 +65,17 @@ func (app *Config) authenticate(w http.ResponseWriter, a AuthPayload) {
 	}
 	defer response.Body.Close()
 
-	// status code checking
+	// make sure we got back the correct status code
+	if response.StatusCode == http.StatusUnauthorized {
+		app.errorJSON(w, errors.New("invalid credentials"))
+		return
+	} else if response.StatusCode != http.StatusAccepted {
+		app.errorJSON(w, errors.New("error calling auth service"))
+		return
+	}
+
+	// create a variable for reading response.Body into
+	var jsonFromService jsonResponse
+
+	response.Body
 }
