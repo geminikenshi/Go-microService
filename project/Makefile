@@ -1,7 +1,7 @@
 SHELL=cmd.exe
 FRONT_END_BINARY=frontApp.exe
 BROKER_BINARY=brokerApp
-AUTH_BINARY=authAPP
+AUTH_BINARY=authApp
 
 ## up: starts all containers in the background without forcing build
 up:
